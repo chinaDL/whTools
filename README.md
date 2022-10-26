@@ -40,11 +40,7 @@
 | 加解密     |             Sm4             |   X   |
 | 加解密     |         Caesar(凯撒)          |   X   |
 | 加解密     |       Rail-fence(栅栏)        |   X   |
-| 加解密     |          Curve(曲路)          |   X   |
-| 加解密     | Columnar Transposition(列移位) |   X   |
-| 加解密     |        Atbash(埃特巴什)         |   X   |
 | 加解密     |         Pigpen(猪圈)          |   X   |
-| 加解密     |  Polybius Square(波利比奥斯方阵)   |   X   |
 | 加解密     |       Vigenère(维吉尼亚)        |   X   |
 | 加解密     |         Affine(仿射)          |   X   |
 | 加解密     |        Baconian(培根)         |   X   |
