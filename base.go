@@ -1,4 +1,4 @@
-package hash
+package whTools
 
 import (
 	"github.com/chinaDL/whTools/encoding"

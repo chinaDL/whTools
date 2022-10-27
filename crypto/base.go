@@ -1,6 +1,8 @@
-package hash
+package crypto
 
 import (
+	"crypto/cipher"
+	"fmt"
 	"github.com/chinaDL/whTools/encoding"
 	"github.com/chinaDL/whTools/os/gfile"
 	"github.com/chinaDL/whTools/utils"
@@ -13,6 +15,78 @@ type BaseStruct struct {
 	Err       error
 	isBigFile bool
 	filePath  string
+}
+
+const (
+	MaxFileBlock = 1 * 1024 * 1024
+)
+
+var (
+	cryptFunMap = make(map[string]func())
+)
+
+func init() {
+	fmt.Println("init")
+}
+
+type ecb struct {
+	b         cipher.Block
+	blockSize int
+}
+
+func newECB(b cipher.Block) *ecb {
+	return &ecb{
+		b:         b,
+		blockSize: b.BlockSize(),
+	}
+}
+
+type ecbEncrypt ecb
+
+// NewECBEncrypt returns a BlockMode which encrypts in electronic code book
+// mode, using the given Block.
+func newECBEncrypt(b cipher.Block) cipher.BlockMode {
+	return (*ecbEncrypt)(newECB(b))
+}
+
+func (x *ecbEncrypt) BlockSize() int { return x.blockSize }
+
+func (x *ecbEncrypt) CryptBlocks(dst, src []byte) {
+	if len(src)%x.blockSize != 0 {
+		panic("crypto/cipher: input not full blocks")
+	}
+	if len(dst) < len(src) {
+		panic("crypto/cipher: output smaller than input")
+	}
+	for len(src) > 0 {
+		x.b.Encrypt(dst, src[:x.blockSize])
+		src = src[x.blockSize:]
+		dst = dst[x.blockSize:]
+	}
+}
+
+type ecbDecrypt ecb
+
+// NewECBDecrypt returns a BlockMode which decrypts in electronic code book
+// mode, using the given Block.
+func NewECBDecrypt(b cipher.Block) cipher.BlockMode {
+	return (*ecbDecrypt)(newECB(b))
+}
+
+func (x *ecbDecrypt) BlockSize() int { return x.blockSize }
+
+func (x *ecbDecrypt) CryptBlocks(dst, src []byte) {
+	if len(src)%x.blockSize != 0 {
+		panic("crypto/cipher: input not full blocks")
+	}
+	if len(dst) < len(src) {
+		panic("crypto/cipher: output smaller than input")
+	}
+	for len(src) > 0 {
+		x.b.Decrypt(dst, src[:x.blockSize])
+		src = src[x.blockSize:]
+		dst = dst[x.blockSize:]
+	}
 }
 
 // String implements the interface Stringer for encode struct.
@@ -82,4 +156,10 @@ func (e BaseStruct) ToBase32Bytes() []byte {
 // 输出经过 base64 编码的字节切片
 func (e BaseStruct) ToBase64Bytes() []byte {
 	return encoding.NewEncode().FromBytes(e.dst).ByBase64().ToBytes()
+}
+
+// returns an invalid aes key error
+// 返回无效的 aes 密钥大小错误
+func invalidAesKeyError(size int) error {
+	return fmt.Errorf("invalid aes key size %d, the key must be 16, 24 or 32 bytes", size)
 }

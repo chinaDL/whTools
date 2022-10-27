@@ -6,22 +6,23 @@
 
 | 功能      |       模块        | 完成情况 |
 |:--------|:---------------:|:----:|
-| 加解密填充模式 |    NoPadding    |  X   |
-| 加解密填充模式 |  PKCS5Padding   |  X   |
-| 加解密填充模式 |  PKCS7Padding   |  X   |
+| 加解密填充模式 |    NoPadding    |  O   |
+| 加解密填充模式 |  PKCS5Padding   |  O   |
+| 加解密填充模式 |  PKCS7Padding   |  O   |
+| 加解密填充模式 |      Zero       |  O   |
 | 加解密填充模式 |      Zero       |  X   |
 | 加解密填充模式 |      Zero       |  X   |
 | 加解密填充模式 |      Zero       |  X   |
-| 加解密填充模式 |      Zero       |  X   |
-| 加解密     |     AES-CBC     |  X   |
-| 加解密     |     AES-ECB     |  X   |
-| 加解密     |     AES-CTR     |  X   |
-| 加解密     |     AES-OCF     |  X   |
-| 加解密     |     AES-CFB     |  X   |
-| 加解密     |     DES-CBC     |  X   |
-| 加解密     |     DES-ECB     |  X   |
-| 加解密     |     DES-CTR     |  X   |
-| 加解密     |     DES-CFB     |  X   |
+| 加解密     |     AES-CBC     |  O   |
+| 加解密     |     AES-ECB     |  O   |
+| 加解密     |     AES-CTR     |  O   |
+| 加解密     |     AES-OCF     |  O   |
+| 加解密     |     AES-CFB     |  O   |
+| 加解密     |     DES-CBC     |  O   |
+| 加解密     |     DES-ECB     |  O   |
+| 加解密     |     DES-CTR     |  O   |
+| 加解密     |     DES-OCF     |  O   |
+| 加解密     |     DES-CFB     |  O   |
 | 加解密     |    3DES-CBC     |  X   |
 | 加解密     |    3DES-ECB     |  X   |
 | 加解密     |    3DES-CTR     |  X   |
@@ -48,10 +49,6 @@
 | 加解密     | MKeyboard(键盘魔改) |  X   |
 | 加解密     |    brainfuck    |  X   |
 | 加解密     |     JSfuck      |  X   |
-| 加解密     |      ROT5       |  X   |
-| 加解密     |      ROT13      |  X   |
-| 加解密     |      ROT18      |  X   |
-| 加解密     |      ROT47      |  X   |
 | 编码      |     Base32      |  O   |
 | 编码      |     Base45      |  O   |
 | 编码      |     Base58      |  O   |

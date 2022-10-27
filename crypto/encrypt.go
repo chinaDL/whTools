@@ -1,4 +1,4 @@
-package encoding
+package crypto
 
 import (
 	"errors"
@@ -8,33 +8,31 @@ import (
 	"os"
 )
 
-// 该部分代码参考于 https://github.com/golang-module/dongle
-
-type Encode struct {
+type Encrypt struct {
 	BaseStruct
 }
 
-func NewEncode() Encode {
-	return Encode{}
+func NewEncrypt() Encrypt {
+	return Encrypt{}
 }
 
 // FromString hash from string.
 // 对字符串进行编码
-func (e Encode) FromString(s string) Encode {
+func (e Encrypt) FromString(s string) Encrypt {
 	e.src = utils.Str2bytes(s)
 	return e
 }
 
 // FromBytes hash from byte slice.
 // 对字节切片进行编码
-func (e Encode) FromBytes(b []byte) Encode {
+func (e Encrypt) FromBytes(b []byte) Encrypt {
 	e.src = b
 	return e
 }
 
 // FromFile hash from file.
 // 对文件进行编码
-func (e Encode) FromFile(f interface{}) Encode {
+func (e Encrypt) FromFile(f interface{}) Encrypt {
 	filename := ""
 	switch v := f.(type) {
 	case string:
