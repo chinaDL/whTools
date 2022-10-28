@@ -20,10 +20,11 @@
 | 加解密     |     DES-CTR     |  O   |
 | 加解密     |     DES-OCF     |  O   |
 | 加解密     |     DES-CFB     |  O   |
-| 加解密     |    3DES-CBC     |  X   |
-| 加解密     |    3DES-ECB     |  X   |
-| 加解密     |    3DES-CTR     |  X   |
-| 加解密     |    3DES-CFB     |  X   |
+| 加解密     |    3DES-CBC     |  O   |
+| 加解密     |    3DES-ECB     |  O   |
+| 加解密     |    3DES-CTR     |  O   |
+| 加解密     |    3DES-OCF     |  O   |
+| 加解密     |    3DES-CFB     |  O   |
 | 加解密     |       Xor       |  X   |
 | 加解密     | RSA-PKCS1-v1_5  |  O   |
 | 加解密     |  RSA-OAEP-MD5   |  O   |
