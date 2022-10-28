@@ -31,7 +31,7 @@ func (e Encrypt) desEncrypt(c *Cipher) Encrypt {
 }
 
 // ByDes encrypts by aes algorithm.
-// 通过 aes 加密
+// 通过 des 加密
 func (e Encrypt) ByDes(c *Cipher) Encrypt {
 	return e.desEncrypt(c)
 }
@@ -64,7 +64,7 @@ func (e Decrypt) desDecrypt(c *Cipher) Decrypt {
 }
 
 // ByDes decrypts by aes algorithm.
-// 通过 aes 解密
+// 通过 des 解密
 func (e Decrypt) ByDes(c *Cipher) Decrypt {
 
 	return e.desDecrypt(c)

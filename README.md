@@ -10,9 +10,6 @@
 | 加解密填充模式 |  PKCS5Padding   |  O   |
 | 加解密填充模式 |  PKCS7Padding   |  O   |
 | 加解密填充模式 |      Zero       |  O   |
-| 加解密填充模式 |      Zero       |  X   |
-| 加解密填充模式 |      Zero       |  X   |
-| 加解密填充模式 |      Zero       |  X   |
 | 加解密     |     AES-CBC     |  O   |
 | 加解密     |     AES-ECB     |  O   |
 | 加解密     |     AES-CTR     |  O   |
@@ -28,7 +25,12 @@
 | 加解密     |    3DES-CTR     |  X   |
 | 加解密     |    3DES-CFB     |  X   |
 | 加解密     |       Xor       |  X   |
-| 加解密     |       RSA       |  X   |
+| 加解密     | RSA-PKCS1-v1_5  |  O   |
+| 加解密     |  RSA-OAEP-MD5   |  O   |
+| 加解密     |  RSA-OAEP-sha1  |  O   |
+| 加解密     | RSA-OAEP-sha256 |  O   |
+| 加解密     | RSA-OAEP-sha384 |  O   |
+| 加解密     | RSA-OAEP-sha512 |  O   |
 | 加解密     |       TEA       |  X   |
 | 加解密     |      xTEA       |  X   |
 | 加解密     |      xxTEA      |  X   |

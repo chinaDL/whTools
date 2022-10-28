@@ -19,9 +19,10 @@ type Cipher struct {
 	padding    PaddingType // 填充模式
 	key        []byte      // 密钥
 	iv         []byte      // 偏移向量
-	publicKey  []byte      // 公钥
-	privateKey []byte      // 私钥
+	PublicKey  []byte      // 公钥
+	PrivateKey []byte      // 私钥
 	paddingMap map[PaddingType]paddingGroup
+	Err        error
 }
 
 // NewCipher returns a new Cipher instance.
@@ -182,4 +183,32 @@ func (c *Cipher) UnPadding(src []byte) []byte {
 		return src
 	}
 	return padFun.UnPaddingFun(src)
+}
+
+func (c *Cipher) SetPrivateKey(key interface{}) *Cipher {
+	switch v := key.(type) {
+	case string:
+		if gfile.Exists(v) {
+			c.PrivateKey, _ = ioutil.ReadFile(v)
+		} else {
+			c.PrivateKey = utils.Str2bytes(v)
+		}
+	case []byte:
+		c.PrivateKey = v
+	}
+	return c
+}
+
+func (c *Cipher) SetPublicKey(key interface{}) *Cipher {
+	switch v := key.(type) {
+	case string:
+		if gfile.Exists(v) {
+			c.PublicKey, _ = ioutil.ReadFile(v)
+		} else {
+			c.PublicKey = utils.Str2bytes(v)
+		}
+	case []byte:
+		c.PublicKey = v
+	}
+	return c
 }
