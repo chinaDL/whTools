@@ -25,7 +25,7 @@
 | 加解密     |    3DES-CTR     |  O   |
 | 加解密     |    3DES-OCF     |  O   |
 | 加解密     |    3DES-CFB     |  O   |
-| 加解密     |       Xor       |  X   |
+| 加解密     |       Xor       |  O   |
 | 加解密     | RSA-PKCS1-v1_5  |  O   |
 | 加解密     |  RSA-OAEP-MD5   |  O   |
 | 加解密     |  RSA-OAEP-sha1  |  O   |
@@ -76,3 +76,8 @@
 | Hash    |       MD5       |  O   |
 | 工具      |    IP范围生成判断     |  O   |
 | 工具      |     爆破字典生成器     |  O   |
+
+
+# 参考项目
+https://github.com/forgoer/openssl   (ecb模式)
+https://github.com/golang-module/dongle   (设计模式)
