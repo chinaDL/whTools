@@ -32,16 +32,10 @@
 | 加解密     | RSA-OAEP-sha256 |  O   |
 | 加解密     | RSA-OAEP-sha384 |  O   |
 | 加解密     | RSA-OAEP-sha512 |  O   |
-| 加解密     |       TEA       |  X   |
-| 加解密     |      xTEA       |  X   |
-| 加解密     |      xxTEA      |  X   |
 | 加解密     |       RC2       |  X   |
 | 加解密     |       RC4       |  X   |
 | 加解密     |       RC5       |  X   |
 | 加解密     |       RC6       |  X   |
-| 加解密     |       Sm2       |  X   |
-| 加解密     |       Sm3       |  X   |
-| 加解密     |       Sm4       |  X   |
 | 加解密     |   Caesar(凯撒)    |  X   |
 | 加解密     | Rail-fence(栅栏)  |  X   |
 | 加解密     |   Pigpen(猪圈)    |  X   |
@@ -77,7 +71,20 @@
 | 工具      |    IP范围生成判断     |  O   |
 | 工具      |     爆破字典生成器     |  O   |
 
+# 示例
+## 加解密类
++ aes 加解密 crypto/aes_test.go
++ des 加解密 crypto/des_test.go
++ 3des 加解密 crypto/tripleDes_test.go
++ rsa 加解密 crypto/rsa_test.go
++ xor 异或  crypto/xor_test.go
+
+## 编码类
++ 示例 encoding/encoding_test.go
+
+## Hash类
++ 示例 hash/hash_test.go
 
 # 参考项目
-https://github.com/forgoer/openssl   (ecb模式)
-https://github.com/golang-module/dongle   (设计模式)
++ https://github.com/forgoer/openssl   (ecb模式)
++ https://github.com/golang-module/dongle   (设计模式)
