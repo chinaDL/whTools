@@ -7,7 +7,8 @@ import (
 	"strings"
 )
 
-func GenerateDictDo(charset string, n int, fn func(string, context.CancelFunc, int)) {
+// GenerateDictDo 字典生成器 回调模式
+func GenerateDictDo(charset string, n int, fn func(string, context.CancelFunc, int) bool) {
 	ctx, cancel := context.WithCancel(context.Background())
 	rCh := make(chan string, 0)
 	count := 0
@@ -21,7 +22,9 @@ For:
 
 				break For
 			}
-			fn(v, cancel, count)
+			if !fn(v, cancel, count) {
+				break For
+			}
 		case <-ctx.Done():
 			break For
 		}
