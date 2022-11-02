@@ -32,10 +32,7 @@
 | 加解密     | RSA-OAEP-sha256 |  O   |
 | 加解密     | RSA-OAEP-sha384 |  O   |
 | 加解密     | RSA-OAEP-sha512 |  O   |
-| 加解密     |       RC2       |  X   |
-| 加解密     |       RC4       |  X   |
-| 加解密     |       RC5       |  X   |
-| 加解密     |       RC6       |  X   |
+| 加解密     |       RC4       |  O   |
 | 加解密     |   Caesar(凯撒)    |  X   |
 | 加解密     | Rail-fence(栅栏)  |  X   |
 | 加解密     |   Pigpen(猪圈)    |  X   |
